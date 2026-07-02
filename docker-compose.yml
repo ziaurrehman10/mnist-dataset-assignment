@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: mnist_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./model:/model:ro          # mount the saved model read-only
+    environment:
+      - MODEL_PATH=/model/model.h5
+      - ALLOWED_ORIGINS=http://localhost:8501,http://frontend:8501
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 15s
+      timeout: 5s
+      retries: 3
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: mnist_frontend
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
