@@ -203,7 +203,7 @@ with tab_draw:
                         use_container_width=True,
                     )
         else:
-            st.info("Draw a digit on the canvas, then click **Classify Digit**.")
+            st.info("Draw a digit on the canvas, then click **Classify Digit** ______.Note: Your drawing can affect the model's predictions, so make sure to draw clearly.")
 
 
 # ── TAB 2: Upload ─────────────────────────────────────────────────────────────
