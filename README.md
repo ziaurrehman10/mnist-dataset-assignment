@@ -48,9 +48,11 @@ cp .env.example .env
 docker-compose up --build
 ```
 
-- API: http://localhost:8000
+- API: http://localhost:8000  
 - API Docs: http://localhost:8000/docs
 - Frontend: http://localhost:8501
+  
+- Demo : https://mnist-dataset-assignmentgit.streamlit.app/
 
 ### 4. Run Locally (Without Docker)
 ```bash
