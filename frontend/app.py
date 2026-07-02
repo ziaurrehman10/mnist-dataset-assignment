@@ -14,6 +14,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# Bridge Streamlit Cloud secrets into os.environ so os.getenv() picks them up
+if "API_BASE_URL" in st.secrets:
+    os.environ["API_BASE_URL"] = st.secrets["API_BASE_URL"]
+
 from utils.api_client import check_health, predict_image, get_model_info  # noqa: E402
 
 # ── Page config ───────────────────────────────────────────────────────────────
