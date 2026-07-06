@@ -52,7 +52,7 @@ docker-compose up --build
 - API Docs: http://localhost:8000/docs
 - Frontend: http://localhost:8501
   
-- Demo : https://mnist-dataset-assignmentgit.streamlit.app/
+- Demo : https://mnist-dataset-assignment.streamlit.app/
 
 ### 4. Run Locally (Without Docker)
 ```bash
